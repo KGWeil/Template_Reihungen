@@ -9,7 +9,6 @@ import processing.data.Table;
  * Hinweis zur Benutzung:
  * Klicke in das Zeichenfenster
  * Animierte Suche mit Taste "a"
- * Automatisches Testen mit Taste "t"* 
  *
  * @author T.Schaller, S.Gebert
  * @version 05.02.2020
@@ -86,6 +85,11 @@ public class Maximumsuche extends PApplet
         }
     }
 
+    /**
+     * Läd Daten aus einer Datei in das Programm
+     *
+     * @param name Name der zu ladenden Datei. Diese muss im Ordner "data" liegen.
+     */
     public void ladeTabelle(String name) {
         // Tabelle aus CSV-Datei laden
         Table csv = loadTable(name, "header,csv");
@@ -105,6 +109,10 @@ public class Maximumsuche extends PApplet
         }
     }
 
+    /**
+     * Zeichnet ein Balkendiagramm auf Grundlage der geladenen Daten.
+     *
+     */
     public void zeichneBalken() {
 
         clear();
@@ -137,6 +145,11 @@ public class Maximumsuche extends PApplet
         }
     }
 
+    /**
+     * Bestimmt das Maximum der geladenen Daten.
+     *
+     * @return index des Maximums
+     */
     public int maximumsuche() {
         // ------------------------------------------------------------------------------
         // ToDO: Implementiere die Maximumsuche, füge nach jeder Veränderung der

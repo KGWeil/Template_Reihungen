@@ -35,9 +35,9 @@ public class Balkendiagramm_Zufall extends PApplet
     public void setup()
     {
         background(0);
-        kleineSchrift = loadFont("KleineSchrift.vlw");
-        grosseSchrift = loadFont("GrosseSchrift.vlw");
-
+        kleineSchrift = createFont("fonts/NotoSans-Medium.ttf", 12); //12 / 26
+        grosseSchrift = createFont("fonts/NotoSansDisplay-Medium.ttf",20); //20 /48
+        
         // Zufallszahlen erzeugen und anzeigen
         erzeugeZufallsarray(20);
         zeichneBalken();
@@ -76,7 +76,7 @@ public class Balkendiagramm_Zufall extends PApplet
      *
      */    
     public static void main(String _args[]){ 
-        PApplet.main(new String[] {Balkendiagramm_Zufall.class.getName() });
+        PApplet.main(Balkendiagramm_Zufall.class, _args);
     }
 
 }

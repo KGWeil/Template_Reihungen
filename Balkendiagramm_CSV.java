@@ -42,9 +42,9 @@ public class Balkendiagramm_CSV extends PApplet
     {
         background(0);
         // Schriften laden
-        kleineSchrift = loadFont("KleineSchrift.vlw");
-        grosseSchrift = loadFont("GrosseSchrift.vlw");
-
+        kleineSchrift = createFont("fonts/NotoSans-Medium.ttf", 12); //12 / 26
+        grosseSchrift = createFont("fonts/NotoSansDisplay-Medium.ttf",20); //20 /48
+   
         // CSV-Datei laden und anzeigen
         ladeTabelle("data/punkte.csv");
         zeichneBalken();
@@ -97,7 +97,7 @@ public class Balkendiagramm_CSV extends PApplet
      *
      */    
     public static void main(String _args[]){ 
-        PApplet.main(new String[] {Balkendiagramm_CSV.class.getName() });
+        PApplet.main(Balkendiagramm_CSV.class, _args);
     }
 
 }

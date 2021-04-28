@@ -54,8 +54,8 @@ public class Maximumsuche extends PApplet
     {
         background(0);
         // Schriften laden
-        kleineSchrift = loadFont("KleineSchrift.vlw");
-        grosseSchrift = loadFont("GrosseSchrift.vlw");
+        kleineSchrift = createFont("fonts/NotoSans-Medium.ttf", 12); //12 / 26
+        grosseSchrift = createFont("fonts/NotoSansDisplay-Medium.ttf",20); //20 /48
 
         // CSV-Datei laden und anzeigen
         ladeTabelle("data/punkte.csv");
@@ -154,7 +154,7 @@ public class Maximumsuche extends PApplet
      *
      */    
     public static void main(String _args[]){ 
-        PApplet.main(new String[] {Maximumsuche.class.getName() });
+                PApplet.main(Maximumsuche.class, _args);
     }
 
 }

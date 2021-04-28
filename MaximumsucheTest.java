@@ -4,9 +4,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import java.io.File;
+import java.net.URI;
 
 // import processing.core.PApplet;
-import TestHelpers.*;
+import processing.data.Table;
 
 /**
  * Die Test-Klasse MaximumsucheTest.
@@ -88,22 +90,27 @@ public class MaximumsucheTest
      * daher nicht mit JUnit kompatibel ist.
      */
     private void ladeTabelle(String name) {
-        // Tabelle aus CSV-Datei laden //<>//
-        Table csv = new Table(name, "header",',','"');
 
-        if (csv != null  && csv.getColumnCount()==2) {
+        try{
+            // Tabelle aus CSV-Datei laden
+            Table csv = new Table(new File(name), "header,csv");
 
-            // Initialisiere Arrays, in die alle Zeilen der Tabelle passen
-            s.zahlen = new int[csv.getRowCount()];
-            s.namen = new String[csv.getRowCount()];
+            if (csv != null  && csv.getColumnCount()==2) {
+                // Initialisiere Arrays, in die alle Zeilen der Tabelle passen
+                s.zahlen = new int[csv.getRowCount()];
+                s.namen = new String[csv.getRowCount()];
 
-            // Fülle die Arrays mit Werten aus der Tabelle
-            for (int i = 0; i < s.zahlen.length; i++) {
-                // Lies Wert aus der i. Zeile und der Spalte "Punkte" bzw. "Name"
-                s.zahlen[i] = csv.getInt(i, "Punkte");
-                s.namen[i] = csv.getString(i, "Name");
+                // Fülle die Arrays mit Werten aus der Tabelle
+                for (int i = 0; i < s.zahlen.length; i++) {
+                    // Lies Wert aus der i. Zeile und der Spalte "Punkte" bzw. "Name"
+                    s.zahlen[i] = csv.getInt(i, "Punkte");
+                    s.namen[i] = csv.getString(i, "Name");
+                }
             }
+        } catch(Exception exc) {
+            exc.printStackTrace();
         }
+
     }
 }
 
